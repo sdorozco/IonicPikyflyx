@@ -1,0 +1,7 @@
+{
+  "name": "pikyflyx",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "angular"
+}

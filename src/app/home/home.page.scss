@@ -1,0 +1,12 @@
+.back{
+  --background: url("../../assets/img/background.jpg")
+}
+.badge-one {
+  position: absolute;
+  top: 0px;
+  right: -5px;
+  font-size: 0.6em;
+  --padding-start: 5px;
+  --padding-end: 5px;
+  border-radius: 35px;
+}

@@ -1,0 +1,36 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Registrarse</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button text="" icon="arrow-back"></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="background">
+<ion-card>
+  <ion-card-content>
+    <center>
+      <img [src]="foto" *ngIf="foto else no_foto" style="width: 150px; height: 150px; border-radius: 60px;"></center>
+      <ng-template #no_foto><img src="../assets/img/logo.png" style="width: 150px; height: 150px;"></ng-template> 
+      <ion-fab vertical="top" horizontal="center" slot="fixed" style="margin-top: 100px; margin-left: 10px;">
+        <ion-fab-button (click)="hacerFoto()">
+          <ion-icon name="camera"></ion-icon>
+        </ion-fab-button>
+      </ion-fab>
+      
+  <ion-input type="text" [(ngModel)]="usuario" placeholder="Usuario" class="custom-input" name="usuario" required="on" style="text-transform:uppercase;" onkeyup="javascript:this.value=this.value.toUpperCase();"></ion-input><br>
+  <ion-input type="text" [(ngModel)]="nombre" placeholder="Nombre" class="custom-input" name="nombre" required="on" style="text-transform:uppercase;" onkeyup="javascript:this.value=this.value.toUpperCase();"></ion-input><br>
+  <ion-input type="text" [(ngModel)]="apellido" placeholder="Apellido" class="custom-input" name="apellido" required="on" style="text-transform:uppercase;" onkeyup="javascript:this.value=this.value.toUpperCase();"></ion-input><br>
+  <ion-input type="email" [(ngModel)]="correo" placeholder="Correo Electrónico" class="custom-input" name="correo" required="on"></ion-input><br>
+  <ion-input type="number" [(ngModel)]="telefono" placeholder="Teléfono" class="custom-input" name="telefono" required="on"></ion-input><br>
+  <ion-input type="password" [(ngModel)]="contrasena" placeholder="Contraseña" class="custom-input" name="contrasena" required="on"></ion-input><br>
+  <ion-button (click)="registro()" expand="full" color="dark">
+    REGISTRARME
+  </ion-button>
+</ion-card-content>
+</ion-card>
+  
+</div>
+</ion-content>

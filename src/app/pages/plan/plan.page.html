@@ -1,0 +1,48 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>PLAN</ion-title>
+    <ion-buttons slot="start">
+        <ion-back-button></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="background">
+    <div style="background-color: white; border-radius: 35PX;">
+      <center><h3 >PLANES</h3></center> 
+          <table class="table">
+            <thead>
+              <tr style="background-color: black; color: #fff;">
+                <th scope="col">Membresia</th>
+                <th scope="col">Meses</th>
+                <th scope="col">Valor Mes</th>
+                <th scope="col">N° Perfiles</th>
+                <th scope="col"></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr style="width: 100%">
+                <th scope="row" style="margin-top: 5px;"><input type="text" value="{{membresia}}" readonly></th>
+                <center><ion-item>
+                  <ion-select [(ngModel)]="mesSelected" value="Meses" multiple="false" placeholder="Meses">
+                    <ion-select-option *ngFor="let i of mesesArray let l = count" value="{{i}}">{{i}}</ion-select-option>
+                  </ion-select>
+                </ion-item></center>
+                <td  style="margin-top: 5px;"><center><input type="text" value="{{valor_mes | number : fractionSize}}" readonly></center></td>
+                <td id="valor_real" name="valor_real" style="display: none"> {{valor_real}} </td>
+                <td  style="margin-top: 5px;">
+                <input type="text" value="aumento" style="display: none;" readonly>
+                  <center><ion-item>
+                  <ion-select [(ngModel)]="itemSelected" value="Perfiles" multiple="false" placeholder="Perfiles" (ionChange)="getItem(itemSelected)">
+                    <ion-select-option  *ngFor="let i of perfilArray let l = count" value="{{i}}">{{i}}</ion-select-option>
+                  </ion-select>
+                </ion-item></center>
+                </td>
+                <td style="margin-top: 5px;"><ion-button (click)="guardar()" color="danger" size="small"><ion-icon name="checkmark-sharp"></ion-icon></ion-button></td>
+              </tr>
+            </tbody>
+          </table>
+          </div>
+  </div>
+</ion-content>

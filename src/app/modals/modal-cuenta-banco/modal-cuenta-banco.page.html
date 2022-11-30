@@ -1,0 +1,59 @@
+<ion-content>
+  <div class="background">
+    <div style="background-color: white; border-radius: 35px" id="cuenta" name="cuenta">
+      <h4 style="text-align: center; font-weight: bold;">CUENTA BANCARIA</h4>
+    <ion-grid fixed>
+      <ion-row>
+        <ion-col size="3"><img src="../../../assets/img/falabella.png" alt=""></ion-col>
+        <ion-col size="3"><img src="../../../assets/img/mastercard.png" alt=""></ion-col>
+        <ion-col size="3"><img src="../../../assets/img/visa.png" alt=""></ion-col>
+        <ion-col size="3"><img src="../../../assets/img/americanexpress.png" alt=""></ion-col>
+      </ion-row>
+    </ion-grid>
+    <hr>
+    
+    <ion-item>
+      <ion-label position="floating">Nombre</ion-label>
+      <ion-input [(ngModel)]="nombre" required></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">Apellido</ion-label>
+      <ion-input [(ngModel)]="apellido" required></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">Número de Tarjeta</ion-label>
+      <ion-input [(ngModel)]="num_tarjeta" type="tel" maxlength="15" required></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>Fecha de Vencimiento</ion-label>
+      <ion-datetime [(ngModel)]="fecha_vencimiento" displayFormat="MM-YY" placeholder="MM/YY" required></ion-datetime>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">Código de Seguridad (CVV)</ion-label>
+      <ion-input [(ngModel)]="cod_seguridad" type="tel" maxlength="3" required></ion-input>
+    </ion-item>
+    <hr>
+    <p style="font-weight: bold;">Cantidad: <strong>{{countS}}</strong></p>
+    <p style="font-weight: bold;">Total a Pagar: <strong>{{total}}</strong></p>
+    <ion-button (click)="dismiss()" expand="full" fill="solid" shape="round">
+      Proceder a Pagar
+    </ion-button>
+  </div>
+  <div id="cuenta_lista" name="cuenta_lista" style="background-color: white; border-radius: 35px; display: none;">
+    <h4 style="text-align: center; font-weight: bold;">PAGOS</h4>
+    <hr>
+    <ion-item style="margin: 5%;">
+      <ion-label position="floating">CANTIDAD DE SUSCRIPCIONES</ion-label>
+      <ion-input value="{{countS}}" type="text" readonly ></ion-input>
+    </ion-item>
+    <ion-item style="margin: 5%;">
+      <ion-label position="floating">TOTAL A PAGAR</ion-label>
+      <ion-input value="{{total}}" type="text" readonly ></ion-input>
+    </ion-item>
+    <ion-button (click)="dismiss()" expand="full" fill="solid" shape="round" color="danger">
+      Proceder a Pagar
+    </ion-button>
+  </div>
+  </div>
+  
+</ion-content>

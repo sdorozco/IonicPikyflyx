@@ -1,0 +1,102 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>CARRO DE COMPRA</ion-title>
+    <ion-buttons slot="start">
+      <ion-menu-button menu="main-menu"></ion-menu-button>
+    </ion-buttons>
+    <ion-buttons slot="end">
+      <ion-button class="badge-button" routerLink="/carrito">
+        <ion-icon size="large" name="cart" style="color: #d27a7a"> </ion-icon>
+        <ion-badge class="badge-one">{{count}}</ion-badge>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="background">
+    <div style="background-color: white; border-radius: 35px">
+      <center><h3>Carro de Compra</h3></center>
+      <table class="table" *ngIf="count > 0; else vacio">
+        <thead>
+          <tr style="background-color: black; color: #fff">
+            <th scope="col">Descripcion</th>
+            <th scope="col">Meses</th>
+            <th scope="col">Valor Mes</th>
+            <th scope="col">N° Perfiles</th>
+            <th scope="col">Total</th>
+            <th scope="col"></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr style="width: 100%" *ngFor="let carrito of carritoDatabase">
+            <th scope="row" style="margin-top: 5px">
+              <input
+                type="text"
+                value="{{carrito.descripcion}}"
+                readonly
+                style="width: 115px"
+              />
+            </th>
+            <td style="margin-top: 5px">
+              <center>
+                <input
+                  type="text"
+                  value="{{carrito.meses}}"
+                  readonly
+                  style="width: 25px"
+                />
+              </center>
+            </td>
+            <td scope="row" style="margin-top: 5px">
+              <input
+                type="text"
+                value="{{carrito.valor_mes | number : fractionSize}}"
+                style="width: 85px"
+                readonly
+              />
+            </td>
+
+            <td>
+              <center>
+                <input
+                  type="text"
+                  value="{{carrito.perfiles}}"
+                  style="width: 25px"
+                  readonly
+                />
+              </center>
+            </td>
+            <td><input type="text" value="{{carrito.total}}" readonly /></td>
+            <td style="margin-top: 5px">
+              <ion-button
+                (click)="p(carrito.id,carrito.idUser)"
+                color="danger"
+                size="small"
+                ><ion-icon name="trash"></ion-icon
+              ></ion-button>
+            </td>
+          </tr>
+          <hr>
+          <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <th><h3>Total :{{total}}</h3></th>
+          </tr>
+        </tbody><br><br>
+      </table><ion-button (click)="pagar()" expand="full" fill="solid" color="danger" shape="round">
+        PROCEDER A PAGAR
+      </ion-button>
+      <ng-template #vacio
+        ><center>
+          <ion-badge style="width: 100%; background-color: #312426"
+            ><h2>No hay suscripciones añadidas</h2></ion-badge
+          >
+        </center></ng-template
+      >
+    </div>
+    
+  </div>
+</ion-content>

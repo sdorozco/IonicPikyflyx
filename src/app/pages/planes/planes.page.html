@@ -1,0 +1,42 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Planes</ion-title>
+    <ion-buttons slot="start">
+      <ion-menu-button menu="main-menu"></ion-menu-button>
+    </ion-buttons>
+    <ion-buttons slot="end">
+      <ion-button class="badge-button"  routerLink="/carrito">
+        <ion-icon size="large" name="cart" style="color: #d27a7a;">
+        </ion-icon>
+        <ion-badge class="badge-one">{{count}}</ion-badge>
+      </ion-button>
+  </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="background">
+  <div style="background-color: white; border-radius: 35PX;">
+<center><h3 >PLANES</h3></center> 
+    <table class="table">
+      <thead>
+        <tr style="background-color: black; color: #fff;">
+          <th scope="col">Membresia</th>
+          <th scope="col">Valor Mes</th>
+          <th scope="col">N° Perfiles</th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr style="width: 100%" *ngFor="let producto of productDatabase" >
+          <th scope="row" style="margin-top: 5px;">{{producto.nombre}}</th>
+          <td  style="margin-top: 5px;"><center>{{producto.valor_mes}}</center></td><br>
+          <center><td  style="margin-top: 5px;" *ngIf="producto.nombre != 'NETFLIX'; else kid">{{producto.perfiles}}</td></center><br>
+          <ng-template #kid><td  style="margin-top: 5px;">{{producto.perfiles}}+KID</td><br></ng-template>
+          <td  style="margin-top: 5px;"><ion-button (click)="plan(producto.id)" color="danger" size="small"><ion-icon name="checkmark-sharp"></ion-icon></ion-button></td>
+        </tr>
+      </tbody>
+    </table>
+    </div>
+  </div>
+</ion-content>

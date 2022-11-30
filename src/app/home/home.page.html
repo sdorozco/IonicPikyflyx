@@ -1,0 +1,35 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>INICIO</ion-title>
+    <ion-buttons slot="start">
+      <ion-menu-button menu="main-menu"></ion-menu-button>
+    </ion-buttons>
+    <ion-buttons slot="end">
+      <ion-button class="badge-button" routerLink="/carrito">
+        <ion-icon size="large" name="cart" style="color: #d27a7a;">
+        </ion-icon>
+        <ion-badge class="badge-one">{{count}}</ion-badge>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="back">
+  <ion-refresher slot="fixed" (ionRefresh)="recargar($event)">
+    <ion-refresher-content></ion-refresher-content>
+  </ion-refresher>
+  <h3 style="color: white;text-align: center;">PIKIFLIX</h3>
+
+    <ion-card *ngFor="let producto of productDatabase">
+      <ion-card-header>
+        <ion-card-title style="text-align: center; font-weight: bold">{{producto.nombre}}</ion-card-title>
+      </ion-card-header>
+    
+      <ion-card-content>
+        <img src={{producto.foto}}>
+        <p style="text-align: justify;">{{producto.descripcion}}</p>
+      </ion-card-content>
+      <ion-button (click)="planes(producto.id)" color="dark" expand="full">PLANES</ion-button>
+    </ion-card>
+    
+</ion-content>

@@ -1,0 +1,25 @@
+<ion-content>
+  
+  <div class="background">
+    <H2 style="color:white; text-align: center; background-color: #0000007a;">PIKYFLIX</H2>
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title style="text-align: center;">INICIAR SESIÓN</ion-card-title>
+      <img src="../../../assets/img/logo.png" class="custom-img-fondo">
+      
+    </ion-card-header>
+    <br>
+  <ion-card-content>
+    <ion-input type="email" [(ngModel)]="usuario" placeholder="Usuario" class="custom-input" name="usuario" required="on"></ion-input><br>
+    <ion-input type="password" [(ngModel)]="password" placeholder="Contraseña" class="custom-input" name="password" required="on"></ion-input>
+    <br> <ion-button fill="clear" class="custom-clear-pass" routerLink="/forgot-password" >¿Se te olvidó tu contraseña?</ion-button>
+  </ion-card-content>
+  
+</ion-card>
+
+  <ion-button (click)="login()" class="custom-button" color="dark">Iniciar sesión</ion-button>
+  <br><ion-button (click)="registro()" class="custom-button" color="warning">Registrarse</ion-button>
+</div>
+
+</ion-content>
+

@@ -1,0 +1,28 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Compras</ion-title>
+    <ion-buttons slot="start">
+      <ion-menu-button menu="main-menu"></ion-menu-button>
+    </ion-buttons>
+    <ion-buttons slot="end">
+      <ion-button class="badge-button" routerLink="/carrito">
+        <ion-icon size="large" name="cart" style="color: #d27a7a"> </ion-icon>
+        <ion-badge class="badge-one">{{count}}</ion-badge>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="background">
+    <ion-list *ngFor="let pagos of pagoDatabase">
+      <ion-item>
+        <ion-label position="floating">SUSCRIPCION {{pagos.nombre}}</ion-label>
+        <ion-input value="{{pagos.fecha}}-{{pagos.hora}}" type="text" readonly></ion-input>
+        <ion-button expand="full" fill="solid" color="warning" style="width: 100%;">
+          <ion-icon name="wallet"></ion-icon>
+        </ion-button>
+      </ion-item>
+    </ion-list>
+  </div>
+</ion-content>
